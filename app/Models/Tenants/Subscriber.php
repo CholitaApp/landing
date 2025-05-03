@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Models\Tenants;
 
-use Illuminate\Database\Eloquent\Model;
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Models\Brand

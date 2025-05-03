@@ -1,17 +1,40 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Tenants\Roles\Role;
+use Barryvdh\LaravelIdeHelper\Eloquent;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+/**
+ * App\Models\Brand
+ *
+ * @property string $id
+ * @property string $email
+ * @property string $name
+ * @property string $password
+ * @property string $role_id
+ * @property string $remember_token
+ * @property string $email_verified_at
+ * @property string $created_at
+ * @property string $updated_at
+ *
+ * @mixin Eloquent
+ */
+class User extends Authenticatable implements MustVerifyEmail
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use Notifiable;
+    use HasFactory;
+    use HasUuids;
+    use HandleDeleteExceptions;
 
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +44,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -31,6 +55,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'role_id',
     ];
 
     /**
@@ -44,5 +69,17 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function Role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public static function whereHasRoleName(string $roleName): Builder
+    {
+        return static::query()->whereHas('role', function (Builder $q) use ($roleName) {
+            $q->where('name', $roleName);
+        });
     }
 }

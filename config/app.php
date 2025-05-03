@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 return [
 
@@ -122,5 +122,8 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+
+    'RECAPTCHA_SECRET_KEY' => env('RECAPTCHA_SECRET_KEY'),
+    'RECAPTCHA_SITE_KEY' => env('RECAPTCHA_SITE_KEY'),
 
 ];

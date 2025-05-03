@@ -16,6 +16,7 @@
                     {{ session('success') }}
                 </div>
             @else
+                <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                 <input
                     type="email"
                     name="email"
@@ -89,4 +90,14 @@
         </button>
     </section>
 
+@endsection
+@section('footer_scripts')
+    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+<script>
+  grecaptcha.ready(function () {
+    grecaptcha.execute('{{ env('RECAPTCHA_SITE_KEY') }}', { action: 'newsletter' }).then(function (token) {
+      document.getElementById('recaptcha_token').value = token;
+    });
+  });
+</script>
 @endsection

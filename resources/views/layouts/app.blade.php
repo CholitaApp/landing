@@ -28,6 +28,9 @@
 
     <title>Cholita.app - Grow, Earn, Connect</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcGAC0rAAAAANWG1Dlb7MBbvwmLpadMHqA5MiCh"></script>
+    @yield('scripts')
+
     <style>
         body {
             font-family: monospace;
@@ -40,5 +43,7 @@
 @yield('content')
 
 @include('layouts.partials.footer')
+
 </body>
+@yield('footer_scripts')
 </html>
