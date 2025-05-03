@@ -3,6 +3,7 @@
 namespace App\Models\Tenants;
 
 use Barryvdh\LaravelIdeHelper\Eloquent;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Subscriber extends Model
 {
+    use HasUuids;
     protected $fillable = [
         'email',
     ];
