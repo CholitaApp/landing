@@ -1,17 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Validation\ValidationException;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_login_screen_can_be_rendered(): void
     {
+        $this->logout();
         $response = $this->get('/login');
 
         $response->assertStatus(200);
@@ -32,6 +31,8 @@ class AuthenticationTest extends TestCase
 
     public function test_users_can_not_authenticate_with_invalid_password(): void
     {
+        $this->logout();
+        $this->expectException(ValidationException::class);
         $user = User::factory()->create();
 
         $this->post('/login', [

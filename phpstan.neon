@@ -1,0 +1,59 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+    # Nivel de análisis de PHPStan (del 0 al 9)
+    level: 6
+
+    # Directorios a analizar
+    paths:
+        - app/
+        - database/
+        - routes/
+
+    # Exclusión de rutas del análisis
+    excludePaths:
+        - tests/
+        - storage/
+        - bootstrap/
+        - vendor/
+
+    # Ignorar errores comunes relacionados con Laravel Nova y métodos mágicos
+    ignoreErrors:
+        - '#Property .* does not exist on Laravel\\Nova\\.*#'
+        - '#Call to an undefined method Laravel\\Nova\\.*#'
+        - '#Access to an undefined property .*#'
+        - '#Undefined variable: \$this#'
+        - '#no value type specified in iterable type array#'
+        - '#generic class .* does not specify its types: TKey, TValue#'
+        - '#Method .* has parameter .* with generic class League\\Csv\\Reader but does not specify its types: TValue#'
+        - '#Property .* with generic class League\\Csv\\Reader does not specify its types: TValue#'
+        - '#Class .* extends generic class Ramsey\\Collection\\AbstractCollection but does not specify its types: T#'
+        - '#Method .* has parameter .* with generic class Ramsey\\Collection\\AbstractCollection but does not specify its types: T#'
+        - '#Class .* extends generic class .* but does not specify its types: TValue#'
+        - '#uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory#'
+        - '#return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types: TRelatedModel, TDeclaringModel#'
+        - '#return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany does not specify its types: TRelatedModel, TDeclaringModel#'
+        - '#uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory#'
+        - '#return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types: TRelatedModel, TDeclaringModel#'
+        - '#return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany does not specify its types: TRelatedModel, TDeclaringModel#'
+        - '#return type with generic class Illuminate\\Database\\Eloquent\\Relations\\HasMany does not specify its types: TRelatedModel, TDeclaringModel#'
+        - '#uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory#'
+        - '#return type with generic class Illuminate\\Database\\Eloquent\\Relations\\.* does not specify its types: TRelatedModel, TDeclaringModel#'
+        - '#PHPDoc type .* of property .* is not covariant with PHPDoc type .* of overridden property Illuminate\\Database\\Eloquent\\Model#'
+        - '#uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory#'
+        - '#return type with generic class Illuminate\\Database\\Eloquent\\Relations\\.* does not specify its types: TRelatedModel, TDeclaringModel#'
+        - '#generic class Illuminate\\Database\\Eloquent\\Builder does not specify its types: TModel#'
+        - '#generic class Ramsey\\Collection\\AbstractCollection does not specify its types: T#'
+        - '#PHPDoc type .* of property .* is not covariant with PHPDoc type .* of overridden property Illuminate\\Database\\Eloquent\\Model#'
+        - '#Method .* has parameter .* with generic class Illuminate\\Database\\Eloquent\\Builder but does not specify its types: TModel#'
+        - '#Method .* return type with generic class Illuminate\\Database\\Eloquent\\Builder does not specify its types: TModel#'
+        - '#Using nullsafe method call on non-nullable type .*#'
+        - '/Deprecated in PHP 8\.4: Parameter #1 \$user \(App\\Models\\User\) is implicitly nullable via default value null\./'
+
+    parallel:
+        maximumNumberOfProcesses: 8
+        processTimeout: 360.0
+
+    # Evitar errores no coincidentes en los ignorados
+    reportUnmatchedIgnoredErrors: false

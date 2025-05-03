@@ -1,14 +1,18 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Validation\ValidationException;
 use Tests\TestCase;
 
 class PasswordConfirmationTest extends TestCase
 {
-    use RefreshDatabase;
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->logout();
+    }
 
     public function test_confirm_password_screen_can_be_rendered(): void
     {
@@ -33,6 +37,7 @@ class PasswordConfirmationTest extends TestCase
 
     public function test_password_is_not_confirmed_with_invalid_password(): void
     {
+        $this->expectException(ValidationException::class);
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->post('/confirm-password', [

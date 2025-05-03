@@ -1,13 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Models\Subscriber;
+use App\Models\Tenants\Subscriber;
+use Http;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class SubscribeController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): RedirectResponse
     {
         $request->validate([
             'email' => 'required|email',
@@ -16,7 +18,7 @@ class SubscribeController extends Controller
 
         // Verificar token con Google
         $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => env('RECAPTCHA_SECRET_KEY'),
+            'secret' => config('RECAPTCHA_SECRET_KEY'),
             'response' => $request->input('recaptcha_token'),
         ]);
 
