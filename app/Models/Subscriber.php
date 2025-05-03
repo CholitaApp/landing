@@ -3,10 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Barryvdh\LaravelIdeHelper\Eloquent;
 
+/**
+ * App\Models\Brand
+ *
+ * @property string $email
+ *
+ * @mixin Eloquent
+ */
 class Subscriber extends Model
 {
-    public string $email;
     protected $fillable = [
         'email',
     ];

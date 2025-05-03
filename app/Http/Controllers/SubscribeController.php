@@ -14,7 +14,7 @@ class SubscribeController extends Controller
         ]);
 
         $subscriber = new Subscriber();
-        $subscriber->email = $request->validated('email');
+        $subscriber->email = $request->input('email');
         $subscriber->save();
 
         return redirect()->back()->with(['success' => 'Subscription successful!'], 200);
