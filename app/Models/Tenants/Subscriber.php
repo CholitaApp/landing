@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Models\Brand
  *
+ * @property string $id
  * @property string $email
  *
  * @mixin Eloquent
@@ -16,6 +17,8 @@ use Illuminate\Database\Eloquent\Model;
 class Subscriber extends Model
 {
     use HasUuids;
+    protected $keyType = 'string';
+    public $incrementing = false;
     protected $fillable = [
         'email',
     ];
