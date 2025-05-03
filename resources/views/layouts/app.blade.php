@@ -37,7 +37,6 @@
 </head>
 <body class="bg-gradient-to-b from-yellow-200 via-pink-200 to-green-100 text-gray-800">
 @include('layouts.partials.header')
-
 @yield('content')
 
 @include('layouts.partials.footer')

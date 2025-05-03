@@ -7,16 +7,11 @@
         <form method="post" action="{{ route('subscribe') }}"
               class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md w-full">
             @csrf
-            @if ($errors->any())
+            @if (session('error'))
                 <div class="bg-red-100 text-red-700 p-4 rounded-md mb-4">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                            {{session('error')}}
                 </div>
-            @endif
-            @if(session('success'))
+            @elseif(session('success'))
                 <div class="bg-green-100 text-green-700 p-4 rounded-md mb-4">
                     {{ session('success') }}
                 </div>
@@ -71,7 +66,7 @@
         <h2 class="text-3xl font-semibold mb-8">Why Cholita.app? 💡</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white p-6 rounded-lg shadow">
-                <h3 class="text-xl font-semibold mb-2">💰 Earn from Home</h3>
+                <h3 class="text-xl font-semibold mb-2">💰 Earn from Dashboard</h3>
                 <p>Turn your gardening skills into cash and CO2 credits.</p>
             </div>
             <div class="bg-white p-6 rounded-lg shadow">

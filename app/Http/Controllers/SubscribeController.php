@@ -15,7 +15,11 @@ class SubscribeController extends Controller
 
         $subscriber = new Subscriber();
         $subscriber->email = $request->input('email');
-        $subscriber->save();
+        try {
+            $subscriber->saveOrFail();
+        } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => 'Subscription failed!'], 500);
+        }
 
         return redirect()->back()->with(['success' => 'Subscription successful!'], 200);
     }
