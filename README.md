@@ -9,7 +9,45 @@ This repository contains the **landing page** for the Cholita project, built wit
 </p>
 
 ---
+## 💸 Economic Model: How Cholita Generates Passive Income
 
+Cholita isn't just a movement — it's an engine for ecological and financial transformation. Here's how users (Cholitas) generate **real passive income** through planting and care:
+
+| Activity                     | Reward Type         | Estimated Monthly Income (USD) |
+|-----------------------------|---------------------|-------------------------------|
+| 🌱 Planting native trees     | Carbon credits sale | $10–$30                       |
+| 🍅 Selling produce/seeds    | Local e-commerce    | $20–$50                       |
+| 🧠 Completing eco-courses   | Micro-certifications | $5–$15 (bonuses + unlocks)    |
+| 💚 Hosting workshops        | Community payments  | $15–$60                       |
+| 🧺 Compost & fertilizer sales| Local neighbors     | $10–$40                       |
+
+**Total Potential Monthly Income:** 💰 **$60–$195+**
+
+> ⚠️ Income may vary by country, climate, and plant type. Cholita aims to increase value through verified carbon credits and community micro-economies.
+
+---
+
+### 🔄 Passive Income Sources Explained
+
+- **Carbon Credits**: Cholita helps users register tree growth and sell verified CO₂ offset credits via partner platforms.
+- **Gardening Commerce**: Users can list homegrown produce, plants, or compost for sale in a local marketplace.
+- **Knowledge Monetization**: Completing courses and sharing knowledge unlocks bonuses, recognition, and income opportunities.
+- **Community Integration**: Local collaboration (e.g., shared gardens, donations, tool lending) reduces expenses and strengthens income loops.
+
+---
+
+### 🌍 Scalable, Sustainable & Inclusive
+
+Cholita is designed to scale across regions with:
+- 🌎 Free participation
+- 🔁 Recurring benefits from long-term plant care
+- 🤝 Built-in community cooperation
+- 📈 Automated traceability for growth and impact
+
+Together, we're turning home gardens into eco-enterprises.  
+**One plant, one income stream at a time.** 💚
+
+---
 ## ✨ Why Cholita?
 
 - 🌍 Fight climate change through local, verifiable actions  
